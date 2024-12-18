@@ -35,7 +35,7 @@
     "dependencies": {
         "@solana/wallet-adapter-base": "workspace:^",
         "@solana/wallet-adapter-react": "workspace:^",
-        "@solana/wallet-adapter-react-ui": "workspace:^",
+        "@metadaoproject/wallet-adapter-react-ui": "workspace:^",
         "@solana/wallet-adapter-wallets": "workspace:^",
         "next": "^12.3.4",
         "react": "^18.2.0",

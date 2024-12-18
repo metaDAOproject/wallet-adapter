@@ -29,10 +29,11 @@
     "dependencies": {
         "@solana/wallet-adapter-base": "workspace:^",
         "@solana/wallet-adapter-react": "workspace:^",
-        "@solana/wallet-adapter-react-ui": "workspace:^",
+        "@metadaoproject/wallet-adapter-react-ui": "workspace:^",
         "@solana/wallet-adapter-wallets": "workspace:^",
         "@solana/web3.js": "^1.77.3",
         "react": "^18.2.0",
+        "motion": "^11.14.4",
         "react-app-rewired": "^2.2.1",
         "react-dom": "^18.2.0",
         "react-scripts": "5.0.1",

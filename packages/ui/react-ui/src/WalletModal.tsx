@@ -9,6 +9,10 @@ import { Collapse } from './Collapse.js';
 import { WalletListItem } from './WalletListItem.js';
 import { WalletSVG } from './WalletSVG.js';
 import { useWalletModal } from './useWalletModal.js';
+<<<<<<< Updated upstream
+=======
+import { motion, AnimatePresence } from 'framer-motion';
+>>>>>>> Stashed changes
 
 export interface WalletModalProps {
     className?: string;

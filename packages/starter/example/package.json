@@ -44,7 +44,7 @@
         "@solana/wallet-adapter-base": "workspace:^",
         "@solana/wallet-adapter-material-ui": "workspace:^",
         "@solana/wallet-adapter-react": "workspace:^",
-        "@solana/wallet-adapter-react-ui": "workspace:^",
+        "@metadaoproject/wallet-adapter-react-ui": "workspace:^",
         "@solana/wallet-adapter-wallets": "workspace:^",
         "@solana/wallet-standard-features": "^1.1.0",
         "@solana/wallet-standard-util": "^1.1.0",

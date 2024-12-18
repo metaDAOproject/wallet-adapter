@@ -3,6 +3,8 @@
     "include": ["src"],
     "compilerOptions": {
         "outDir": "lib/cjs",
-        "jsx": "react"
+        "jsx": "react",
+        "incremental": true,
+        "tsBuildInfoFile": "lib/cjs/.tsbuildinfo"
     }
 }
