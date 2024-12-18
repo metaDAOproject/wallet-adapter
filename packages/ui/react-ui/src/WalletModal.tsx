@@ -9,7 +9,7 @@ import { WalletListItem } from './WalletListItem.js';
 import { WalletInfoContent } from './WalletInfoModal.js';
 import { WalletSVG } from './WalletSVG.js';
 import { useWalletModal } from './useWalletModal.js';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion';
 
 export interface WalletModalProps {
     className?: string;
