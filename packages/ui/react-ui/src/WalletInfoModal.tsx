@@ -56,8 +56,6 @@ export const WalletInfoContent: React.FC = () => {
                     ))}
                 </div>
             </div>
-
-            <button className="wallet-info-learn-more">Learn More</button>
         </div>
     );
 };
