@@ -10,16 +10,18 @@ export interface WalletListItemProps {
     tabIndex?: number;
     wallet: Wallet;
     className?: string;
+    disabled?: boolean;
 }
 
-export const WalletListItem: FC<WalletListItemProps> = ({ handleClick, tabIndex, wallet, className }) => {
+export const WalletListItem: FC<WalletListItemProps> = ({ handleClick, tabIndex, wallet, className, disabled }) => {
     return (
         <li>
             <Button
                 onClick={handleClick}
                 startIcon={<WalletIcon wallet={wallet} />}
                 tabIndex={tabIndex}
-                className={`wallet-adapter-button ${className || ''}`}
+                className={`wallet-adapter-button ${className || ''} ${disabled ? 'disabled' : ''}`}
+                disabled={disabled}
             >
                 {wallet.adapter.name}
                 {wallet.readyState === WalletReadyState.Installed && <span>Detected</span>}
