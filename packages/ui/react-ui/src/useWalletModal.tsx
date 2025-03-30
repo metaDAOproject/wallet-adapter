@@ -3,6 +3,7 @@ import { createContext, useContext } from 'react';
 export interface WalletModalContextState {
     visible: boolean;
     setVisible: (open: boolean) => void;
+    termsUrl: string | undefined;
 }
 
 const DEFAULT_CONTEXT = {
@@ -10,6 +11,7 @@ const DEFAULT_CONTEXT = {
         console.error(constructMissingProviderErrorMessage('call', 'setVisible'));
     },
     visible: false,
+    termsUrl: undefined,
 };
 Object.defineProperty(DEFAULT_CONTEXT, 'visible', {
     get() {
@@ -32,5 +34,11 @@ function constructMissingProviderErrorMessage(action: string, valueName: string)
 export const WalletModalContext = createContext<WalletModalContextState>(DEFAULT_CONTEXT as WalletModalContextState);
 
 export function useWalletModal(): WalletModalContextState {
-    return useContext(WalletModalContext);
+    const context = useContext(WalletModalContext);
+
+    if (!context.termsUrl || !context.termsUrl.length) {
+        throw new Error('You must provide a `termsUrl` prop to the `WalletModalProvider`.');
+    }
+
+    return context;
 }

@@ -1,6 +1,6 @@
 {
   "name": "@metadaoproject/wallet-adapter-react-ui",
-  "version": "0.9.35",
+  "version": "0.9.37-alpha.4",
   "author": "Solana Maintainers <maintainers@solana.foundation>",
   "repository": {
     "type": "git",

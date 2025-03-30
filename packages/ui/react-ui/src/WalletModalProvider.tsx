@@ -5,6 +5,7 @@ import type { WalletModalProps } from './WalletModal.js';
 import { WalletModal } from './WalletModal.js';
 
 export interface WalletModalProviderProps extends WalletModalProps {
+    termsUrl: string;
     children: ReactNode;
 }
 
@@ -16,6 +17,7 @@ export const WalletModalProvider: FC<WalletModalProviderProps> = ({ children, ..
             value={{
                 visible,
                 setVisible,
+                termsUrl: props.termsUrl,
             }}
         >
             {children}

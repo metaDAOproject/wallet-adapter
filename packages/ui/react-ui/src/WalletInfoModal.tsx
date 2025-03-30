@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { WalletIllustration } from './WalletIllustration.js';
+import { WalletIllustration } from './Walletillustration';
 
 const steps = [
     {

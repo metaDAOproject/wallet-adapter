@@ -11,7 +11,6 @@ import { WalletSVG } from './WalletSVG.js';
 import { useWalletModal } from './useWalletModal.js';
 import { motion, AnimatePresence } from 'framer-motion';
 
-
 export interface WalletModalProps {
     className?: string;
     container?: string;
@@ -20,11 +19,11 @@ export interface WalletModalProps {
 export const WalletModal: FC<WalletModalProps> = ({ className = '', container = 'body' }) => {
     const ref = useRef<HTMLDivElement>(null);
     const { wallets, select } = useWallet();
-    const { setVisible } = useWalletModal();
+    const { setVisible, termsUrl } = useWalletModal();
     const [expanded, setExpanded] = useState(false);
     const [fadeIn, setFadeIn] = useState(false);
     const [portal, setPortal] = useState<Element | null>(null);
-
+    const [areTermsAccepted, setAreTermsAccepted] = useState(false);
     const [listedWallets, collapsedWallets] = useMemo(() => {
         const installed: Wallet[] = [];
         const notInstalled: Wallet[] = [];
@@ -62,6 +61,10 @@ export const WalletModal: FC<WalletModalProps> = ({ className = '', container = 
     );
 
     const handleCollapseClick = useCallback(() => setExpanded(!expanded), [expanded]);
+
+    const handleTermsAcceptanceChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+        setAreTermsAccepted(event.target.checked);
+    }, []);
 
     const handleTabKey = useCallback(
         (event: KeyboardEvent) => {
@@ -139,9 +142,24 @@ export const WalletModal: FC<WalletModalProps> = ({ className = '', container = 
                         {listedWallets.length ? (
                             <>
                                 <h1 className="wallet-adapter-modal-title">Connect a wallet on Solana to continue</h1>
+                                <div className="wallet-adapter-terms-of-service">
+                                    <input
+                                        type="checkbox"
+                                        id="terms-of-service"
+                                        checked={areTermsAccepted}
+                                        onChange={handleTermsAcceptanceChange}
+                                    />
+                                    <label htmlFor="terms-of-service">
+                                        I agree to the{' '}
+                                        <a href={termsUrl} target="_blank">
+                                            Terms of Service
+                                        </a>
+                                    </label>
+                                </div>
                                 <ul className="wallet-adapter-modal-list">
                                     {listedWallets.map((wallet) => (
                                         <WalletListItem
+                                            disabled={!areTermsAccepted}
                                             key={wallet.adapter.name}
                                             handleClick={(event) => handleWalletClick(event, wallet.adapter.name)}
                                             wallet={wallet}
@@ -151,6 +169,7 @@ export const WalletModal: FC<WalletModalProps> = ({ className = '', container = 
                                         <Collapse expanded={expanded} id="wallet-adapter-modal-collapse">
                                             {collapsedWallets.map((wallet) => (
                                                 <WalletListItem
+                                                    disabled={!areTermsAccepted}
                                                     key={wallet.adapter.name}
                                                     handleClick={(event) =>
                                                         handleWalletClick(event, wallet.adapter.name)

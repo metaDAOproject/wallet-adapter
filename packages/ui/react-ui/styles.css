@@ -746,3 +746,20 @@
     top: 48px;
     left: 62%;
 }
+
+.wallet-adapter-terms-of-service {
+  display: flex;
+  gap: 8px;
+  padding-bottom: 16px;
+}
+
+.wallet-adapter-terms-of-service a {
+  color: #ff4848;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.wallet-adapter-button.disabled {
+  opacity: 60%;
+  cursor: not-allowed;
+}
